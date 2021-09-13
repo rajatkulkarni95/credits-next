@@ -1,4 +1,5 @@
 import useSWR from "swr";
+import camelcaseKeys from "camelcase-keys";
 import { constants } from "../constants";
 import fetcher from "../utils/fetcher";
 
@@ -8,7 +9,10 @@ export const useRequest = (path: string) => {
   }
 
   const url = `${constants.baseUrl}${path}`;
-  const { data, error } = useSWR(url, fetcher);
+  let { data, error } = useSWR(url, fetcher);
+
+  // Convert the api values to camelCase
+  data = camelcaseKeys(data, { deep: true });
 
   return { data, error };
 };
