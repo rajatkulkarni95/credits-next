@@ -6,6 +6,7 @@ export const font: FontTheme = {
     xs: "22px",
     sm: "26px",
     md: "32px",
+    lg: "36px",
     xxl: "108px",
   },
   weights: {

@@ -36,6 +36,7 @@ declare module "styled-components" {
       xs: string;
       sm: string;
       md: string;
+      lg: string;
       xxl: string;
     };
     weights: {

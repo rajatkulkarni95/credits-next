@@ -1,13 +1,13 @@
 import useSWR from "swr";
-import { BASE_URL } from "../constants";
+import { constants, API_KEY } from "../constants";
 import fetcher from "../utils/fetcher";
 
 export const useRequest = (path: string) => {
   if (!path) {
     throw new Error("path is required");
   }
-  const authorization = `?api_key=${process.env.NEXT_PUBLIC_TMDB_API_KEY}`;
-  const url = `${BASE_URL}${path}${authorization}`;
+  const authorization = `?api_key=${API_KEY}`;
+  const url = `${constants.baseUrl}${path}${authorization}`;
   const { data, error } = useSWR(url, fetcher);
 
   return { data, error };
